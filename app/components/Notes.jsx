@@ -1,4 +1,6 @@
 import React from 'react';
+import Note from './Note';
+
 /* import uuid from 'uuid'; */
 
 /*
@@ -28,9 +30,11 @@ import React from 'react';
     renderizarlos. 
 
 */
+
+
 export default ({notes}) => (
     <ul>{notes.map(note =>
-        <li key={note.id}>{note.task}</li>
+        <li key={note.id}><Note task={note.task} /></li>
     )}</ul>
 )
 
