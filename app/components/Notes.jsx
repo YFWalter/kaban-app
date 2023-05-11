@@ -29,12 +29,20 @@ import Note from './Note';
     Es importante que sea único ya que, sino, React no será capaz de saber el orden correcto en el que debe 
     renderizarlos. 
 
-*/
-
-
 export default ({notes}) => (
     <ul>{notes.map(note =>
         <li key={note.id}><Note task={note.task} /></li>
+    )}</ul>
+)
+
+*/
+
+export default ({notes, onDelete=() => {}}) => (
+    <ul>{notes.map(({id,task}) =>
+        <li key={id}>
+            <Note onDelete={onDelete.bind(null,id)}
+            task={task} />
+        </li>
     )}</ul>
 )
 
